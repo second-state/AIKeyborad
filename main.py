@@ -715,6 +715,7 @@ def main():
     try:
         logger.info("Registering hotkeys...")
         keyboard.add_hotkey('alt+shift+f2', bridge.emit_voice_start)
+        keyboard.on_release_key('f2', lambda e: bridge.emit_voice_stop())
         keyboard.add_hotkey('alt+shift+f3', bridge.emit_action)
         keyboard.add_hotkey('alt+shift+f1', bridge.emit_cancel)
         keyboard.add_hotkey('alt+shift+f7', bridge.emit_reset)
