@@ -9,4 +9,4 @@ def calculate_average(numbers):
 my_list = [10, 20, 30, 40, 50]
 result = calculate_average(my_list)
 
-print("平均值是:" + result)
+print(f"average value:" + result)
