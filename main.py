@@ -480,7 +480,7 @@ class HUDWindow(QWidget):
         if state == "IDLE":
             self.status_label.setText("IDLE")
             self.status_label.setStyleSheet("color: gray;")
-            self.hint_label.setText("Voice: Alt+Shift+F2")
+            self.hint_label.setText("Voice: rocord (F3)")
             self.hide()
             
         elif state == "RECORDING":
@@ -715,10 +715,9 @@ def main():
     try:
         logger.info("Registering hotkeys...")
         keyboard.add_hotkey('alt+shift+f2', bridge.emit_voice_start)
-        keyboard.on_release_key('f2', lambda e: bridge.emit_voice_stop())
         keyboard.add_hotkey('alt+shift+f3', bridge.emit_action)
         keyboard.add_hotkey('alt+shift+f1', bridge.emit_cancel)
-        keyboard.add_hotkey('alt+shift+f5', bridge.emit_reset)
+        keyboard.add_hotkey('alt+shift+f7', bridge.emit_reset)
         keyboard.add_hotkey('alt+shift+f6', bridge.emit_yolo)
         logger.info("Hotkeys registered.")
     except Exception as e:
@@ -727,7 +726,7 @@ def main():
     app.aboutToQuit.connect(lambda: keyboard.unhook_all())
 
     print("Vibecoder HUD Running.")
-    print("Hotkeys: Alt+Shift+F1/F2/F3/F5/F6")
+    print("Hotkeys: Alt+Shift+F1/F2/F3/F7/F6")
 
     sys.exit(app.exec())
 
