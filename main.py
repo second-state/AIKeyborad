@@ -469,7 +469,7 @@ class HUDWindow(QWidget):
     def show_startup_message(self):
         self.status_label.setText("Vibecoder HUD Ready")
         self.status_label.setStyleSheet("color: #00ff00;")
-        self.text_area.setText("System initialized.\n\nWaiting for Voice (Alt+Shift+F2)...")
+        self.text_area.setText("System initialized.\n\nWaiting for record (F2)...")
         self.show()
         QTimer.singleShot(3000, lambda: self.update_state("IDLE"))
 
@@ -480,7 +480,7 @@ class HUDWindow(QWidget):
         if state == "IDLE":
             self.status_label.setText("IDLE")
             self.status_label.setStyleSheet("color: gray;")
-            self.hint_label.setText("Voice: rocord (F3)")
+            self.hint_label.setText("Voice: record (F2)")
             self.hide()
             
         elif state == "RECORDING":
